@@ -1,0 +1,8 @@
+type UserPayload {
+  id: String!,
+  email: String
+}
+
+extend type Query {
+  me: UserPayload
+}

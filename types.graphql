@@ -1,0 +1,38 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
+
+# projectId: cjfvflw2k46tf01156qm8c9vb
+# version: 1
+
+
+type Food @model {
+  addressstr: String
+  id: ID! @isUnique
+  location: Json
+  title: String
+}
+
+type User @model {
+  createdAt: DateTime!
+  email: String! @isUnique
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
+
+type ApiKey @model {
+  createdAt: DateTime!
+  serviceName: String! @isUnique
+  id: ID! @isUnique
+  key: String!
+}
+
+
+# Uncomment the model below as well
+
+# type Post @model {
+#   id: ID! @isUnique
+#   title: String!
+#
+#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
+#   author: User! @relation(name: "UserPosts")
+# }

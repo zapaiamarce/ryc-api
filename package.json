@@ -1,0 +1,12 @@
+{
+  "name": "ryc-api",
+  "version": "1.0.0",
+  "description": "My Graphcool Service",
+  "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
+    "graphcool-lib": "^0.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1"
+  }
+}
