@@ -18,8 +18,6 @@ export default async event => {
   `);
 
   return {
-    data: {
-      me: User
-    }
+    data: User
   }
 }
