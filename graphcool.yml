@@ -21,7 +21,10 @@ types: ./types.graphql
 functions:
   hello:
     handler:
-      code: src/hello.js
+      code: 
+        src: src/hello.js
+        environment:
+          SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
     type: resolver
     schema: src/hello.graphql
   me:
@@ -29,6 +32,16 @@ functions:
       code: src/me.js
     type: resolver
     schema: src/me.graphql
+  syncFoods:
+    handler:
+      code:
+        src: src/syncFoods.js
+        environment:
+          ALGOLIA_APP_ID: ${env:ALGOLIA_APP_ID}
+          ALGOLIA_API_KEY: ${env:ALGOLIA_API_KEY}
+          ALGOLIA_INDEX_NAME: ${env:ALGOLIA_INDEX_NAME}
+    type: subscription
+    query: src/syncFoodsQuery.graphql
 
 
 # Model/Relation permissions are used to limit the API access

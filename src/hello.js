@@ -1,17 +1,15 @@
 const sgMail = require('@sendgrid/mail');
 import { fromEvent } from 'graphcool-lib';
-
+const { SENDGRID_API_KEY } = process.env;
 
 export default async event => {
   const client = fromEvent(event);
   const api = client.api('simple/v1');
 
   const { email } = event.data;
+  sgMail.setApiKey(SENDGRID_API_KEY);
 
-  const { ApiKey:{ key } } = await api.request(`{ ApiKey(serviceName:"sendgrid"){  key } }`);
-  sgMail.setApiKey(key);
-
-  console.log('key', key);
+  console.log('key', SENDGRID_API_KEY);
 
   const result = await api.request(`
     {

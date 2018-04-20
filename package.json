@@ -2,8 +2,13 @@
   "name": "ryc-api",
   "version": "1.0.0",
   "description": "My Graphcool Service",
+  "scripts": {
+    "deploy": "graphcool deploy"
+  },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
+    "algoliasearch": "^3.27.0",
+    "graphcool": "^0.11.6",
     "graphcool-lib": "^0.1.4"
   },
   "devDependencies": {
