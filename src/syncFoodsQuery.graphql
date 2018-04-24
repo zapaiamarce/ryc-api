@@ -1,0 +1,16 @@
+subscription {
+  Food(filter: {
+    mutation_in: [CREATED, UPDATED, DELETED]
+  }) {
+    mutation
+    previousValues {
+      objectID: id
+    }
+    node {
+      objectID: id
+      addressstr
+      title
+      _geoloc: location
+    }
+  }
+}

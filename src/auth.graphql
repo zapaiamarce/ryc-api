@@ -1,0 +1,7 @@
+type HelloPayload {
+  message: String!
+}
+
+extend type Mutation {
+  auth(email: String): HelloPayload
+}

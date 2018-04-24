@@ -19,14 +19,14 @@ types: ./types.graphql
 
 
 functions:
-  hello:
+  auth:
     handler:
       code: 
-        src: src/hello.js
+        src: src/auth.js
         environment:
           SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
     type: resolver
-    schema: src/hello.graphql
+    schema: src/auth.graphql
   me:
     handler:
       code: src/me.js

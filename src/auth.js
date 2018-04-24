@@ -9,7 +9,6 @@ export default async event => {
   const { email } = event.data;
   sgMail.setApiKey(SENDGRID_API_KEY);
 
-  console.log('key', SENDGRID_API_KEY);
 
   const result = await api.request(`
     {
