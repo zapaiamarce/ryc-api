@@ -1,6 +1,7 @@
 {
   "data": {
-    "email": "zapaiamarce@gmail.com"
+    "email": "zapaiamarce@gmail.com",
+    "dev": true
   },
   "context": {
     "request": {

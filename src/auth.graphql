@@ -3,5 +3,8 @@ type HelloPayload {
 }
 
 extend type Mutation {
-  auth(email: String): HelloPayload
+  auth(
+    email: String,
+    dev: Boolean @defaultValue(value: "false")
+  ): HelloPayload
 }

@@ -1,0 +1,1 @@
+- reindexar todas las foods = borrar el indice y volver a indexar - resolver

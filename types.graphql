@@ -10,6 +10,7 @@ type Food @model {
   id: ID! @isUnique
   location: Json
   title: String
+  cook: User @relation(name: "FoodCook")
 }
 
 type User @model {
@@ -17,6 +18,7 @@ type User @model {
   email: String! @isUnique
   id: ID! @isUnique
   updatedAt: DateTime!
+  foods: [Food!]! @relation(name: "FoodCook")
 }
 
 

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "My Graphcool Service",
   "scripts": {
-    "deploy": "graphcool deploy"
+    "deploy": "graphcool deploy",
+    "dryrun": "graphcool deploy --dry-run"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
