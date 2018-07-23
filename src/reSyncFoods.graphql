@@ -1,0 +1,7 @@
+type Dumb {
+  response: String
+}
+
+extend type Query {
+  reSyncFoodIndex: Dumb
+}

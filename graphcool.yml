@@ -32,6 +32,16 @@ functions:
       code: src/me.js
     type: resolver
     schema: src/me.graphql
+  reSyncFoods:
+    handler:
+      code:
+        src: src/reSyncFoods.js
+        environment:
+          ALGOLIA_APP_ID: ${env:ALGOLIA_APP_ID}
+          ALGOLIA_API_KEY: ${env:ALGOLIA_API_KEY}
+          ALGOLIA_INDEX_NAME: ${env:ALGOLIA_INDEX_NAME}
+    type: resolver
+    schema: src/reSyncFoods.graphql
   syncFoods:
     handler:
       code:
@@ -49,8 +59,8 @@ functions:
 # preconfigured the wildcard ("*") permission that allows everything
 # Read more here:
 # https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
-permissions:
-  - operation: "*"
+# permissions:
+#   - operation: "*"
 
 
 # Your root tokens used for functions to get full access to the API
