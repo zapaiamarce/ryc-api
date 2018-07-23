@@ -19,7 +19,7 @@ export default async event => {
   const { allFoods } = await api.request(`
     {
       allFoods{
-        objectID: id
+        id
         addressstr
         title
         _geoloc: location
@@ -27,7 +27,7 @@ export default async event => {
     }
   `);
 
-  console.log(allFoods);
+  // console.log(allFoods);
   
   allFoods.forEach(f => index.addObject(f))
 
