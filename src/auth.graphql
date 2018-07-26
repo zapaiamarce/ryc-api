@@ -6,6 +6,6 @@ extend type Mutation {
   auth(
     email: String,
     dev: Boolean @defaultValue(value: "false"),
-    redirect: string
+    redirect: String
   ): HelloPayload
 }
