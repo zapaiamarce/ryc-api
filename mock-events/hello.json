@@ -1,7 +1,8 @@
 {
   "data": {
     "email": "zapaiamarce@gmail.com",
-    "dev": true
+    "dev": true,
+    "redirect": "/edit-food"
   },
   "context": {
     "request": {

@@ -1,6 +1,7 @@
-const sgMail = require('@sendgrid/mail');
 import { fromEvent } from 'graphcool-lib';
+const sgMail = require('@sendgrid/mail');
 const { SENDGRID_API_KEY } = process.env;
+const cleanURL = url => url.replace(/^https?:\/\//i, "");
 
 export default async event => {
   const client = fromEvent(event);
@@ -9,6 +10,7 @@ export default async event => {
   const { 
     email,
     dev,
+    redirect
   } = event.data;
 
   sgMail.setApiKey(SENDGRID_API_KEY);
@@ -28,24 +30,46 @@ export default async event => {
 
   const msg = {
     to: email,
-    from: 'zapaiamarce@gmail.com',
-    subject: 'Tu cuenta de Rico y Casero',
-    // text: 'and easy to do anywhere, even with Node.js',
+    from: 'R&C <admin@ricoycasero.com>',
+    subject: 'Ingresar a Rico y Casero',
+
     html: `
-        <h1>
-          Click en el siguiente link para ingresar:
-        </h1>
-        <a 
+
+        <div
           style="
-            display:inline-block; 
-            color:white; 
-            background-color:blue; 
-            padding:20px;
+            text-align:center;
+            font-family: Helvetica, Arial;
           " 
-          href="${linkHostname}auth?token=${token}"
         >
-          Ingresar a tu cuenta
-        </a>
+          <img src="https://res.cloudinary.com/dnamyvmsq/image/upload/w_300/v1532569896/ryc/logo-mail.png">
+
+          <h1
+            style="
+              font-size:20px;
+              font-weight:500;
+              margin:40px 0;
+            " 
+          >
+            Para ingresar a tu cuenta
+          </h1>
+
+          <a 
+            style="
+              display:inline-block; 
+              color:white; 
+              background-color:#41DDC1; 
+              padding:15px;
+              font-size:16px;
+              width:285px;
+              border-radius:2px;
+              text-decoration:none;
+            " 
+            href="${linkHostname}auth?token=${token}&redirect=${cleanURL(redirect)}"
+          >
+            Hacé click en este botón
+          </a>
+          
+        </div>
       
     `,
   };
