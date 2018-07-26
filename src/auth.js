@@ -1,7 +1,11 @@
 import { fromEvent } from 'graphcool-lib';
 const sgMail = require('@sendgrid/mail');
 const { SENDGRID_API_KEY } = process.env;
-const cleanURL = url => url.replace(/^https?:\/\//i, "");
+const cleanURL = (url="") => url.replace(/^https?:\/\//i, "");
+
+const EXISTING_USER_TEXT = "¡Hola, de nuevo!"
+const NEW_USER_TEXT = "¡Bienvenid@! Ya estás list@ para pedir y publicar tus comidas favoritas."
+const NEW_USER_REDIRECT = "/me?firstTime=true"
 
 export default async event => {
   const client = fromEvent(event);
@@ -15,7 +19,7 @@ export default async event => {
 
   sgMail.setApiKey(SENDGRID_API_KEY);
 
-  const result = await api.request(`
+  const {User:existingUser} = await api.request(`
     {
       User(email:"${email}"){ 
         id
@@ -23,10 +27,25 @@ export default async event => {
     }`
   );
 
-  const userId = result.User.id;
+  if(!existingUser){
+    const {createUser:newUser} = await api.request(`
+      mutation{
+        createUser(email:"${email}"){
+          id
+        }
+      }
+    `);
+  }
+
+  const User = existingUser || newUser
+
+  const emailMessage = existingUser ? EXISTING_USER_TEXT : NEW_USER_TEXT;
+  const redirectAfterLogin = existingUser ? cleanURL(redirect) : NEW_USER_REDIRECT;
+
+  const userId = User.id;
 
   const token = await client.generateAuthToken(userId, 'User');
-  const linkHostname = dev ? 'http://localhost:8793/' : 'http://www.ricoycasero.com/';
+  const linkHostname = dev ? 'http://localhost:8793/' : 'https://ricoycasero.herokuapp.com/';
 
   const msg = {
     to: email,
@@ -48,9 +67,10 @@ export default async event => {
               font-size:20px;
               font-weight:500;
               margin:40px 0;
+              color:#222;
             " 
           >
-            Para ingresar a tu cuenta
+            ${emailMessage}
           </h1>
 
           <a 
@@ -64,9 +84,9 @@ export default async event => {
               border-radius:2px;
               text-decoration:none;
             " 
-            href="${linkHostname}auth?token=${token}&redirect=${cleanURL(redirect)}"
+            href="${linkHostname}auth?token=${token}&redirect=${redirectAfterLogin}"
           >
-            Hacé click en este botón
+            Ingresar a tu cuenta
           </a>
           
         </div>
