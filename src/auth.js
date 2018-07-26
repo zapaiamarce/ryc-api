@@ -41,7 +41,7 @@ export default async event => {
             font-family: Helvetica, Arial;
           " 
         >
-          <img src="https://res.cloudinary.com/dnamyvmsq/image/upload/w_300/v1532569896/ryc/logo-mail.png">
+          <img src="https://res.cloudinary.com/dnamyvmsq/image/upload/w_300,q_100/ryc/logo-mail.png">
 
           <h1
             style="
