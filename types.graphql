@@ -14,10 +14,13 @@ type Food @model {
 }
 
 type User @model {
-  createdAt: DateTime!
-  email: String! @isUnique
   id: ID! @isUnique
+  createdAt: DateTime!
   updatedAt: DateTime!
+  email: String! @isUnique
+  fullName: String
+  deliveryCenterLocation: Json
+  deliveryRadiusInMeters: Int
   foods: [Food!]! @relation(name: "FoodCook")
 }
 
