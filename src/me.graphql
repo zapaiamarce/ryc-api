@@ -1,6 +1,9 @@
 type UserPayload {
   id: String!,
-  email: String
+  email: String,
+  fullName: String
+  deliveryCenterLocation: Json
+  deliveryRadiusInMeters: Int
 }
 
 extend type Query {
