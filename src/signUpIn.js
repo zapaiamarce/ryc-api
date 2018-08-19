@@ -35,7 +35,7 @@ export default async event => {
       AuthCode(email:"${email}"){ id }
     }
   `);
-  console.log('a')
+  
   if(!existingAuthCode){
     const { createAuthCode:newAuthCode } = await api.request(`
       mutation{
@@ -67,58 +67,54 @@ export default async event => {
 
     html: `
 
-        <div
-          style="
+        <div style="
             text-align:center;
             color:#333;
             font-family: proxima-nova, Lato, Arial;
-          " 
-        > 
-          <table style="width:100%; border-spacing:0;">
-            <tr>
-              <td style="width:70px;">
-                <img src="https://res.cloudinary.com/dnamyvmsq/image/upload/w_70/ryc/shield.png""> 
-              </td>
-              <td>
-                <h1
-                  style="
-                    font-size:26px;
-                    font-weight:500;
-                    text-align: center;
-                  " 
-                >
-                  ${emailHeader}
-                </h1>
-              </td>
-              <td style="width:70px;"></td>
-            </tr>
-          </table>
+        "> 
+          <div style="
+            background-color:#7e86e9;
+            text-align:left;
+            padding:20px;
+          ">
+            <img
+              style="display:block" 
+              src="https://res.cloudinary.com/dnamyvmsq/image/upload/h_25,q_auto:best/ryc/ryc_white.png" 
+            />
+          </div>
+          
+          <h1 style="
+              font-size:26px;
+              font-weight:500;
+              text-align: center;
+              margin-top:40px;
+          ">
+            ${emailHeader}
+          </h1>
 
-          <h2
-              style="
+          <h2 style="
                 font-size:18px;
                 font-weight:500;
                 text-align: center;
-                margin:20px 0 0;
-              " 
-          >
+                margin:40px 0 0;
+          ">
             Tu código es:
           </h2>
           
-          <div style="margin-top:20px;">
-            <span
-              style="
-                display:inline-block; 
-                color:white; 
-                background-color:#41DDC1; 
-                padding:15px;
-                font-size:22px;
-                width:285px;
-                border-radius:2px;
-                text-decoration:none;
-                font-family:Courier;
-              " 
-            >
+          <div style="
+            margin-top:5px; 
+            text-align:center;
+          ">
+            <span style="
+              display:inline-block; 
+              color:white; 
+              background-color:#353536; 
+              padding:15px 25px;
+              font-size:26px;
+              border-radius:2px;
+              text-decoration:none;
+              font-family:Courier;
+            ">
               ${code}
             </span>
           </div>
