@@ -6,8 +6,8 @@
 
 
 type Food @model {
-  addressstr: String
   id: ID! @isUnique
+  addressstr: String
   location: Json
   title: String
   cook: User @relation(name: "FoodCook")
@@ -24,6 +24,15 @@ type User @model {
   foods: [Food!]! @relation(name: "FoodCook")
 }
 
+type AuthCode @model {
+  id: ID! @isUnique
+  email: String! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  code: String
+  failedAttempts: Int @defaultValue(value: "0")
+  alreadyUsed: Boolean @defaultValue(value: "false")
+}
 
 # Uncomment the model below as well
 

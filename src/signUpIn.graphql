@@ -1,0 +1,9 @@
+type StatusPayload {
+  message: String!
+}
+
+extend type Mutation {
+  signUpIn(
+    email: String
+  ): StatusPayload
+}

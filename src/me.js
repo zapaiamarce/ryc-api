@@ -13,7 +13,10 @@ export default async event => {
         {
           User(id:"${userId}"){ 
             email,
-            id
+            id,
+            fullName,
+            deliveryCenterLocation,
+            deliveryRadiusInMeters
           }
         }
       `);

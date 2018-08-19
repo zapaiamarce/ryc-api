@@ -1,0 +1,9 @@
+query UpdateUserQuery($node_id: ID!, $user_id: ID!) {
+  SomeUserExists(filter: {
+    AND: [{
+      id: $user_id
+    }, {
+      id: $node_id
+    }]
+  })
+}

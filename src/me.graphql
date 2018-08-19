@@ -1,5 +1,5 @@
 type UserPayload {
-  id: String!,
+  id: String,
   email: String,
   fullName: String
   deliveryCenterLocation: Json

@@ -27,6 +27,14 @@ functions:
           SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
     type: resolver
     schema: src/auth.graphql
+  signUpIn:
+    handler:
+      code: 
+        src: src/signUpIn.js
+        environment:
+          SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
+    type: resolver
+    schema: src/signUpIn.graphql
   me:
     handler:
       code: src/me.js
@@ -62,6 +70,11 @@ functions:
 # permissions:
 #   - operation: "*"
 
+permissions:
+  - operation: User.update
+    authenticated: true
+    fields: [email, fullName, deliveryCenterLocation, deliveryRadiusInMeters]
+    query: permissions-queries/updateUser.graphql
 
 # Your root tokens used for functions to get full access to the API
 # Read more here:
