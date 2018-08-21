@@ -66,8 +66,8 @@ export default async event => {
   const userId = User.id;
   const msg = {
     to: email,
-    from: 'R&C <admin@ricoycasero.com>',
-    subject: 'Tu código para ingresar a Rico y Casero',
+    from: 'Rico y Casero <admin@ricoycasero.com>',
+    subject: `Tu código es: ${code}`,
 
     html: `
 
@@ -77,13 +77,12 @@ export default async event => {
             font-family: proxima-nova, Lato, Arial;
         "> 
           <div style="
-            background-color:#7e86e9;
-            text-align:left;
-            padding:20px;
+            background-color:#41DDC1;
+            text-align:center;
+            padding:20px 0 12px;
           ">
             <img
-              style="display:block" 
-              src="https://res.cloudinary.com/dnamyvmsq/image/upload/h_25,q_auto:best/ryc/ryc_white.png" 
+              src="https://res.cloudinary.com/dnamyvmsq/image/upload/ryc/ryc_white_small.png" 
             />
           </div>
           
@@ -91,7 +90,7 @@ export default async event => {
               font-size:26px;
               font-weight:500;
               text-align: center;
-              margin-top:40px;
+              margin-top:35px;
           ">
             ${emailHeader}
           </h1>
@@ -100,20 +99,20 @@ export default async event => {
                 font-size:18px;
                 font-weight:500;
                 text-align: center;
-                margin:40px 0 0;
+                margin:30px 0 0;
           ">
-            Tu código es:
+            Tu código para ingresar es:
           </h2>
           
           <div style="
-            margin-top:5px; 
+            margin-top:10px; 
             text-align:center;
           ">
             <span style="
               display:inline-block; 
               color:white; 
               background-color:#353536; 
-              padding:15px 25px;
+              padding:15px 40px;
               font-size:26px;
               border-radius:2px;
               text-decoration:none;
@@ -123,12 +122,12 @@ export default async event => {
             </span>
           </div>
           <div style="
-            margin-top:60px;
+            margin-top:10px;
             color:#BBB;
             font-size: 12px;
             text-align:center;
           ">
-            Código generado el ${moment().format("D/M/YYYY HH:mm")}
+            Generado el ${moment().format("D/M/YYYY HH:mm")}
           </div>
         </div>
       
