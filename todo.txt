@@ -1,1 +1,2 @@
-- reindexar todas las foods = borrar el indice y volver a indexar - resolver
+- agregar fecha al email de codigo
+- login con codigo

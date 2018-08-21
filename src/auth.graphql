@@ -1,11 +1,10 @@
-type HelloPayload {
-  message: String!
+type AuthResponse {
+  token: String!
 }
 
 extend type Mutation {
   auth(
     email: String,
-    dev: Boolean @defaultValue(value: "false"),
-    redirect: String
-  ): HelloPayload
+    code: String
+  ): AuthResponse 
 }

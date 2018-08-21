@@ -1,4 +1,6 @@
-import { fromEvent } from 'graphcool-lib';
+import { fromEvent } from "graphcool-lib";
+import * as moment from "moment";
+
 const sgMail = require('@sendgrid/mail');
 const { SENDGRID_API_KEY } = process.env;
 
@@ -50,7 +52,9 @@ export default async event => {
     mutation{
       updateAuthCode(
         id:"${AuthCode.id}"
-        code:"${code}"
+        code:"${code}",
+        failedAttempts: 0,
+        alreadyUsed: false
       ){
         id
       }
@@ -63,7 +67,7 @@ export default async event => {
   const msg = {
     to: email,
     from: 'R&C <admin@ricoycasero.com>',
-    subject: 'Ingresar a Rico y Casero',
+    subject: 'Tu código para ingresar a Rico y Casero',
 
     html: `
 
@@ -118,12 +122,22 @@ export default async event => {
               ${code}
             </span>
           </div>
+          <div style="
+            margin-top:60px;
+            color:#BBB;
+            font-size: 12px;
+            text-align:center;
+          ">
+            Código generado el ${moment().format("D/M/YYYY HH:mm")}
+          </div>
         </div>
       
     `,
   };
 
   await sgMail.send(msg);
+
+  console.log(`code ${code}`)
 
   return {
     data: {
