@@ -30,14 +30,14 @@ export default async event => {
     return {
       error: {
         code:13,
-        message:"Code already used, please generate a new one"
+        message:"Este código ya ha sido utilizado"
       }
     }
   }else if(existingAuthCode && existingAuthCode.failedAttempts >= 3){
     return {
       error: {
         code:12,
-        message:"Maximum failed attemps for this code, please generate a new one"
+        message:"Por favor generá un nuevo código"
       }
     }
   }else if(codeExistsAndIsValid){
@@ -47,16 +47,16 @@ export default async event => {
       }
     `);
     const token = await client.generateAuthToken(existingUser.id, 'User');
-    // await api.request(`
-    //   mutation{
-    //     updateAuthCode(
-    //       id:"${existingAuthCode.id}"
-    //       alreadyUsed:true
-    //     ){
-    //       id
-    //     }
-    //   }
-    // `);
+    await api.request(`
+      mutation{
+        updateAuthCode(
+          id:"${existingAuthCode.id}"
+          alreadyUsed:true
+        ){
+          id
+        }
+      }
+    `);
 
     return {
       data:{
@@ -78,7 +78,7 @@ export default async event => {
     return {
       error: {
         code:11,
-        message:"Invalid email or code",
+        message:"Código invalido",
         debugMessage: "We should add validation in the frontend as well!",
         userFacingMessage: "Please supply a valid email address!"
       }

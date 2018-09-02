@@ -4,13 +4,21 @@ subscription {
   }) {
     mutation
     previousValues {
-      objectID: id
+      id
     }
     node {
-      objectID: id
+      id
       addressstr
       title
-      _geoloc: location
+      dates{
+        delivery
+        orderDeadline
+      }
+      cook{
+        id
+        deliveryCenterLocation
+        deliveryRadiusInMeters
+      }
     }
   }
 }

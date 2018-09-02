@@ -22,14 +22,12 @@ export default async event => {
         id
         addressstr
         title
-        _geoloc: location
+        cook
       }
     }
   `);
-
-  // console.log(allFoods);
-  
-  allFoods.forEach(f => index.addObject(f))
+  console.log("allFoods", allFoods)
+  allFoods.forEach(f => index.addObject(foodToIndex(f)))
 
   return {
     data:{

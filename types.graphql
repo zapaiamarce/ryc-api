@@ -4,13 +4,19 @@
 # projectId: cjfvflw2k46tf01156qm8c9vb
 # version: 1
 
+type DeliveryDate @model{
+  id: ID! @isUnique
+  delivery: DateTime!
+  orderDeadline: DateTime!
+  food: Food! @relation(name: "FoodDeliveryDate")
+}
 
 type Food @model {
   id: ID! @isUnique
   addressstr: String
-  location: Json
   title: String
   cook: User @relation(name: "FoodCook")
+  dates: [DeliveryDate!]! @relation(name: "FoodDeliveryDate")
 }
 
 type User @model {

@@ -79,10 +79,11 @@ export default async event => {
           <div style="
             background-color:#41DDC1;
             text-align:center;
-            padding:20px 0 12px;
+            padding:25px 0 18px;
           ">
             <img
-              src="https://res.cloudinary.com/dnamyvmsq/image/upload/ryc/ryc_white_small.png" 
+              style="height:25px"
+              src="https://res.cloudinary.com/dnamyvmsq/image/upload/ryc/ryc_white.png" 
             />
           </div>
           
@@ -90,7 +91,7 @@ export default async event => {
               font-size:26px;
               font-weight:500;
               text-align: center;
-              margin-top:35px;
+              margin-top:40px;
           ">
             ${emailHeader}
           </h1>

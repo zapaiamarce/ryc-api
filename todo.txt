@@ -1,2 +1,2 @@
-- agregar fecha al email de codigo
-- login con codigo
+- sincronizar comidas cuando cambia la comida y cuando cambio el cocinero
+usando lib/algolia foodToIndex()

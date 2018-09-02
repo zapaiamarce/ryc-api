@@ -2,3 +2,4 @@ node_modules
 .envrc
 .build
 mock-events/admin.json
+.DS_Store
