@@ -1,0 +1,8 @@
+query ReadFoodQuery($node_id: ID!, $user_id: ID!) {
+  SomeFoodExists(filter: {
+    id: $node_id,
+    cook: {
+      id: $user_id
+    }  
+  })
+}

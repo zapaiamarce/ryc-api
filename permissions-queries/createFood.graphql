@@ -1,0 +1,9 @@
+query permitCreateFood($user_id: ID!, $input_cookId: ID!) {
+  SomeUserExists(filter: {
+    AND: [{
+      id: $user_id
+    }, {
+      id: $input_cookId
+    }]
+  })
+}
