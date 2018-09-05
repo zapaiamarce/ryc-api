@@ -3,3 +3,4 @@ node_modules
 .build
 mock-events/admin.json
 .DS_Store
+mock-events

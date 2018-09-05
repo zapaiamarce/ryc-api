@@ -22,9 +22,9 @@ module.exports = event => {
 
   switch (mutation) {
     case 'CREATED':
-      return index.addObject(node)
+      return index.addObject(foodToIndex(node))
     case 'UPDATED':
-      return index.saveObject(node)
+      return index.saveObject(foodToIndex(node))
     case 'DELETED':
       return index.deleteObject(previousValues.id) 
     default:

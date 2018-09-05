@@ -51,6 +51,8 @@ functions:
     type: resolver
     schema: src/reSyncFoods.graphql
   syncFoods:
+    type: subscription
+    query: src/syncFoodsQuery.graphql
     handler:
       code:
         src: src/syncFoods.js
@@ -58,8 +60,6 @@ functions:
           ALGOLIA_APP_ID: ${env:ALGOLIA_APP_ID}
           ALGOLIA_API_KEY: ${env:ALGOLIA_API_KEY}
           ALGOLIA_INDEX_NAME: ${env:ALGOLIA_INDEX_NAME}
-    type: subscription
-    query: src/syncFoodsQuery.graphql
 
 
 # Model/Relation permissions are used to limit the API access
@@ -68,13 +68,28 @@ functions:
 # Read more here:
 # https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
 # permissions:
-#   - operation: "*"
+  # - operation: "*"
 
 permissions:
-  - operation: User.update
+#   - operation: User.read
+#     authenticated: true
+#     query: permissions-queries/updateUser.graphql
+#   - operation: User.update
+#     authenticated: true
+#     fields: [email, fullName, deliveryCenterLocation, deliveryRadiusInMeters]
+#     query: permissions-queries/updateUser.graphql
+  
+  - operation: Food.create
     authenticated: true
-    fields: [email, fullName, deliveryCenterLocation, deliveryRadiusInMeters]
-    query: permissions-queries/updateUser.graphql
+    query: permissions-queries/createFood.graphql
+  
+  - operation: FoodCook.connect
+    authenticated: true
+  
+  # - operation: Food.read
+  #   authenticated: true
+  #   query: permissions-queries/readFood.graphql
+
 
 # Your root tokens used for functions to get full access to the API
 # Read more here:

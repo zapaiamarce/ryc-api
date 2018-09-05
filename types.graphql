@@ -4,18 +4,23 @@
 # projectId: cjfvflw2k46tf01156qm8c9vb
 # version: 1
 
+enum Currency{
+  ARS
+}
+
 type DeliveryDate @model{
   id: ID! @isUnique
-  delivery: DateTime!
-  orderDeadline: DateTime!
+  delivery: DateTime! 
+  orderDeadline: DateTime! 
   food: Food! @relation(name: "FoodDeliveryDate")
 }
 
 type Food @model {
   id: ID! @isUnique
-  addressstr: String
-  title: String
-  cook: User @relation(name: "FoodCook")
+  title: String!
+  price: Int
+  priceCurrency: Currency @defaultValue(value: "ARS")
+  cook: User! @relation(name: "FoodCook")
   dates: [DeliveryDate!]! @relation(name: "FoodDeliveryDate")
 }
 
@@ -26,6 +31,7 @@ type User @model {
   email: String! @isUnique
   fullName: String
   deliveryCenterLocation: Json
+  deliveryCenterAddress: String
   deliveryRadiusInMeters: Int
   foods: [Food!]! @relation(name: "FoodCook")
 }

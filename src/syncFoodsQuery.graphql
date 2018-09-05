@@ -8,7 +8,6 @@ subscription {
     }
     node {
       id
-      addressstr
       title
       dates{
         delivery
