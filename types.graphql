@@ -30,6 +30,7 @@ type User @model {
   updatedAt: DateTime!
   email: String! @isUnique
   fullName: String
+  bio: String
   deliveryCenterLocation: Json
   deliveryCenterAddress: String
   deliveryRadiusInMeters: Int

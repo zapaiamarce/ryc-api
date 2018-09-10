@@ -15,6 +15,7 @@ export default async event => {
             email,
             id,
             fullName,
+            bio,
             deliveryCenterLocation,
             deliveryRadiusInMeters
           }

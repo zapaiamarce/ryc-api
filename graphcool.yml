@@ -71,13 +71,13 @@ functions:
   # - operation: "*"
 
 permissions:
-#   - operation: User.read
-#     authenticated: true
-#     query: permissions-queries/updateUser.graphql
-#   - operation: User.update
-#     authenticated: true
-#     fields: [email, fullName, deliveryCenterLocation, deliveryRadiusInMeters]
-#     query: permissions-queries/updateUser.graphql
+  - operation: User.read
+    authenticated: true
+    query: permissions-queries/updateUser.graphql
+    
+  - operation: User.update
+    authenticated: true
+    query: permissions-queries/updateUser.graphql
   
   - operation: Food.create
     authenticated: true
@@ -86,9 +86,9 @@ permissions:
   - operation: FoodCook.connect
     authenticated: true
   
-  # - operation: Food.read
-  #   authenticated: true
-  #   query: permissions-queries/readFood.graphql
+  - operation: Food.read
+    authenticated: true
+    query: permissions-queries/readFood.graphql
 
 
 # Your root tokens used for functions to get full access to the API

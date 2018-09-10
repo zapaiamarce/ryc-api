@@ -2,6 +2,7 @@ type UserPayload {
   id: String,
   email: String,
   fullName: String
+  bio: String
   deliveryCenterLocation: Json
   deliveryRadiusInMeters: Int
 }
