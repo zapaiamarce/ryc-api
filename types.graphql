@@ -18,7 +18,8 @@ type DeliveryDate @model{
 type Food @model {
   id: ID! @isUnique
   title: String!
-  price: Int
+  description: String! @migrationValue(value: "")
+  price: Float! @migrationValue(value: 12.5)
   priceCurrency: Currency @defaultValue(value: "ARS")
   cook: User! @relation(name: "FoodCook")
   dates: [DeliveryDate!]! @relation(name: "FoodDeliveryDate")

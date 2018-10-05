@@ -40,6 +40,11 @@ functions:
       code: src/me.js
     type: resolver
     schema: src/me.graphql
+  addTestCook:
+    handler:
+      code: src/addTestCook.js
+    type: resolver
+    schema: src/addTestCook.graphql
   reSyncFoods:
     handler:
       code:

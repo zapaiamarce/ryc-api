@@ -1,0 +1,11 @@
+type AddTestCookPayload {
+  message: String!
+}
+
+extend type Mutation {
+  addTestCook(
+    email: String
+    message: String
+    location: String
+  ): AddTestCookPayload
+}
