@@ -1,0 +1,17 @@
+type AddEarlyAdopterPayload {
+  message: String!
+}
+
+enum UserType {
+  COOK
+  FOODIE
+}
+
+extend type Mutation {
+  addEarlyAdopter(
+    email: String,
+    message: String,
+    location: String,
+    type: String
+  ): AddEarlyAdopterPayload
+}

@@ -40,11 +40,11 @@ functions:
       code: src/me.js
     type: resolver
     schema: src/me.graphql
-  addTestCook:
+  addEarlyAdopter:
     handler:
-      code: src/addTestCook.js
+      code: src/addEarlyAdopter.js
     type: resolver
-    schema: src/addTestCook.graphql
+    schema: src/addEarlyAdopter.graphql
   reSyncFoods:
     handler:
       code:

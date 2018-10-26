@@ -12,3 +12,12 @@ export const addCook = async newCook => {
   });
 }
 
+export const addFoodie = async newFoodie => {
+  new Promise((res, rej) => {
+    base("foodies").create(newFoodie, function(err, record) {
+      if (err) rej(err);
+      res(record);
+    });
+  });
+}
+

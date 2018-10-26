@@ -66,7 +66,7 @@ export default async event => {
   const userId = User.id;
   const msg = {
     to: email,
-    from: 'Rico y Casero <admin@ricoycasero.com>',
+    from: 'Rico y Casero <no-responder@ricoycasero.com>',
     subject: `Tu código es: ${code}`,
 
     html: `
