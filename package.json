@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "My Graphcool Service",
   "scripts": {
-    "deploy": "graphcool deploy",
-    "dryrun": "graphcool deploy --dry-run",
-    "pad": "git push && npm run deploy"
+    "deploy-local": "graphcool deploy",
+    "deploy-prod": "NODE_ENV=production graphcool deploy -t prod",
+    "pad": "git push && npm run deploy-prod"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
