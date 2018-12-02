@@ -10,7 +10,7 @@ subscription {
       id
       title
       dates{
-        delivery
+        deliveryDate
         orderDeadline
       }
       cook{

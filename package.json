@@ -4,7 +4,8 @@
   "description": "My Graphcool Service",
   "scripts": {
     "deploy-local": "graphcool deploy",
-    "deploy-prod": "NODE_ENV=production graphcool deploy -t prod",
+    "deploy-prod": "NODE_ENV=production graphcool deploy -t prod --force",
+    "deploy": "npm run deploy-local",
     "pad": "git push && npm run deploy-prod"
   },
   "dependencies": {

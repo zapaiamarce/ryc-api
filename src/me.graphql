@@ -5,6 +5,7 @@ type UserPayload {
   bio: String
   deliveryCenterLocation: Json
   deliveryRadiusInMeters: Int
+  deliveryCenterAddress: String
 }
 
 extend type Query {

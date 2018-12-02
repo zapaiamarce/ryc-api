@@ -10,7 +10,7 @@ enum Currency{
 
 type DeliveryDate @model{
   id: ID! @isUnique
-  delivery: DateTime! 
+  deliveryDate: DateTime! @rename(oldName: "delivery")
   orderDeadline: DateTime! 
   food: Food! @relation(name: "FoodDeliveryDate")
 }
@@ -19,7 +19,7 @@ type Food @model {
   id: ID! @isUnique
   title: String!
   description: String! @migrationValue(value: "")
-  price: Float! @migrationValue(value: 12.5)
+  price: Float! @migrationValue(value: 0)
   priceCurrency: Currency @defaultValue(value: "ARS")
   cook: User! @relation(name: "FoodCook")
   dates: [DeliveryDate!]! @relation(name: "FoodDeliveryDate")
